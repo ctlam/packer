@@ -144,7 +144,11 @@ OutputLoop:
 			}
 		case output := <-stdoutCh:
 			if output != "" {
-				ui.Message(r.cleanOutputLine(output))
+				cleanedLine := r.cleanOutputLine(output)
+				ui.Message(cleanedLine)
+				if cleanedLine == "unix-reboot" {
+					goto UnixReboot
+				}
 			}
 		case <-exitCh:
 			break OutputLoop
@@ -161,6 +165,7 @@ OutputLoop:
 		ui.Message(strings.TrimSpace(output))
 	}
 
+UnixReboot:
 	return nil
 }
 
