@@ -218,7 +218,7 @@ func (c *Communicator) newWinRMClient() (*winrm.Client, error) {
 		TLSServerName: conf.TLSServerName,
 		CACert:        conf.CACertBytes,
 		Timeout:       conf.ConnectTimeout,
-		*/
+	  */
 	}
 	params := winrm.NewParameters(
 		winrm.DefaultParameters.Timeout,
