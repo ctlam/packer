@@ -11,8 +11,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/hashicorp/packer/packer"
 	"github.com/masterzen/winrm"
+	"github.com/mitchellh/packer/packer"
 	"github.com/packer-community/winrmcp/winrmcp"
 )
 
@@ -213,9 +213,11 @@ func (c *Communicator) newWinRMClient() (*winrm.Client, error) {
 		Port:          c.endpoint.Port,
 		HTTPS:         conf.Https,
 		Insecure:      conf.Insecure,
+		/*
 		TLSServerName: conf.TLSServerName,
 		CACert:        conf.CACertBytes,
 		Timeout:       conf.ConnectTimeout,
+		*/
 	}
 	params := winrm.NewParameters(
 		winrm.DefaultParameters.Timeout,
