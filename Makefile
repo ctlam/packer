@@ -29,7 +29,7 @@ package:
 
 deps:
 	go get github.com/mitchellh/gox
-	go get golang.org/x/tools/cmd/stringer
+#	go get golang.org/x/tools/cmd/stringer  This is breaking go1.10.8, and it's a gigantic nightware to rev to 1.12 which break even more stuff.  It doesn't seem to be harmful to leave this out.
 	go get github.com/kardianos/govendor
 	govendor sync
 
